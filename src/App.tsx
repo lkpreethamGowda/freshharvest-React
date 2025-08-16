@@ -8,6 +8,9 @@ import Message from "./components/Message";
 import HomeHeader from "./components/HomeHeader";
 import ShopPage from "./components/ShopPage";
 
+import ProductPage from "./components/Products";
+import FarmerDetails from "./components/FarmerProfile";
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +21,8 @@ function App() {
         <Route path="/SignUp" element={<SignUpPage />} />
         <Route path="/Message" element={<Message />} />
         <Route path="/Shop" element={<ShopPage />} />
+        <Route path="/Product" element={<ProductPage />} />
+        <Route path="/Farmer" element={<FarmerDetails />} />
       </Routes>
       <Footer />
     </BrowserRouter>
