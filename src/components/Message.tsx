@@ -1,4 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 function Message() {
+  const naviagte = useNavigate();
+  const ShopPage = () => {
+    naviagte("/Shop");
+  };
   const Username = "Sarah";
   return (
     <div className="flex w-full h-full items-center justify-center">
@@ -13,7 +19,10 @@ function Message() {
           explore our farm-fresh produce.
         </p>
 
-        <button className="bg-[#4AB814] rounded-lg w-30 h-[40px] text-black-100 ml-80">
+        <button
+          onClick={ShopPage}
+          className="bg-[#4AB814] rounded-lg w-30 h-[40px] text-black-100 ml-80"
+        >
           Go to Shop
         </button>
       </div>
