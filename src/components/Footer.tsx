@@ -1,3 +1,6 @@
+import Logo1 from "../assets/InstaLogo.png";
+import Logo2 from "../assets/TwitterLogo.png";
+import Logo3 from "../assets/FacebookLogo.png";
 import { NavLink } from "react-router-dom";
 
 function Footer() {
@@ -23,7 +26,12 @@ function Footer() {
           Terms of Service
         </NavLink>
       </div>
-      <div className="mt-2">
+      <div className=" flex justify-center mr-20 gap-6">
+        <img className="h-4" src={Logo1} alt="##" />
+        <img className="h-4" src={Logo2} alt="##" />
+        <img className="h-4" src={Logo3} alt="##" />
+      </div>
+      <div className="mt-4">
         <p className="text-center text-gray-400 pr-20">
           @2024 FreshHarvest All Rights reserved
         </p>
