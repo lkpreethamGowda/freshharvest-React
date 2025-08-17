@@ -10,6 +10,7 @@ import ShopPage from "./components/ShopPage";
 
 import ProductPage from "./components/Products";
 import FarmerDetails from "./components/FarmerProfile";
+import PricingPage from "./components/Pricing";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Shop" element={<ShopPage />} />
         <Route path="/Product" element={<ProductPage />} />
         <Route path="/Farmer" element={<FarmerDetails />} />
+        <Route path="/Price" element={<PricingPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
