@@ -15,6 +15,7 @@ import CustomerReviews from "./components/Review";
 import BadgesPage from "./components/Badges";
 import CartPage from "./components/Cart";
 import OrderPage from "./components/Order";
+import OrderHistory from "./components/History";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/Badges" element={<BadgesPage />} />
         <Route path="/Cart" element={<CartPage />} />
         <Route path="/Order" element={<OrderPage />} />
+        <Route path="/History" element={<OrderHistory />} />
       </Routes>
       <Footer />
     </BrowserRouter>
