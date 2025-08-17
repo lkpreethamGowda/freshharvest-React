@@ -13,6 +13,7 @@ import FarmerDetails from "./components/FarmerProfile";
 import PricingPage from "./components/Pricing";
 import CustomerReviews from "./components/Review";
 import BadgesPage from "./components/Badges";
+import CartPage from "./components/Cart";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/Price" element={<PricingPage />} />
         <Route path="/Review" element={<CustomerReviews />} />
         <Route path="/Badges" element={<BadgesPage />} />
+        <Route path="/Cart" element={<CartPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
