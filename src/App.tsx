@@ -11,6 +11,7 @@ import ShopPage from "./components/ShopPage";
 import ProductPage from "./components/Products";
 import FarmerDetails from "./components/FarmerProfile";
 import PricingPage from "./components/Pricing";
+import CustomerReviews from "./components/Review";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Product" element={<ProductPage />} />
         <Route path="/Farmer" element={<FarmerDetails />} />
         <Route path="/Price" element={<PricingPage />} />
+        <Route path="/Review" element={<CustomerReviews />} />
       </Routes>
       <Footer />
     </BrowserRouter>
