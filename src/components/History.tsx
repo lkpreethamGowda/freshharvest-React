@@ -1,3 +1,5 @@
+//shadow-md for the tabel shadow
+
 function OrderHistory() {
   return (
     <div>
@@ -5,7 +7,7 @@ function OrderHistory() {
         <h1 className="text-2xl mr-190 font-bold">Order History</h1>
       </div>
       <div className="flex items-center justify-center">
-        <div className="overflow-x-auto bg-white shadow-md rounded-lg w-240 border mt-10 border-[#DEE5DB]">
+        <div className="overflow-x-auto bg-white  rounded-lg w-240 border mt-10 border-[#DEE5DB]">
           <table className="min-w-full">
             <thead className="border-b border-[#DEE5DB]">
               <tr>

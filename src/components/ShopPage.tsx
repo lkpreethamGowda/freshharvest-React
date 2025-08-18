@@ -29,7 +29,7 @@ function ShopPage() {
 
   return (
     <body>
-      <div className="flex justify-items-center">
+      <div className="flex justify-center items-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div>
             <div className="relative mt-5 block w-full">
@@ -55,7 +55,7 @@ function ShopPage() {
               />
             </div>
 
-            <div className="flex justify-center w-200 gap-4 ">
+            <div className="flex justify-start w-200 gap-4 mr-50">
               <div className="mt-4">
                 <label htmlFor="category-select" className="sr-only">
                   Choose a category
