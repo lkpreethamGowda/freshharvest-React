@@ -31,20 +31,40 @@ const CustomerReviews = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center w-200 ml-73">
-      <Box sx={{ padding: 3 }}>
+    <div className="flex items-center justify-center w-full">
+      <Box sx={{ padding: 3, maxWidth: 800 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Customer Reviews
         </Typography>
-        <div className="">
-          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            mb: 4,
+            flexWrap: "wrap",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              mb: 2,
+              mr: 5,
+              flexShrink: 0,
+            }}
+          >
             <Typography variant="h2" component="span" sx={{ mr: 2 }}>
               4.8
             </Typography>
             <Box>
               <Box>
                 {[...Array(5)].map((_, index) =>
-                  index < 4 ? <Star key={index} /> : <StarBorder key={index} />
+                  index < 4 ? (
+                    <Star key={index} sx={{ color: "black" }} />
+                  ) : (
+                    <StarBorder key={index} sx={{ color: "black" }} />
+                  )
                 )}
               </Box>
               <Typography variant="body2" color="text.secondary">
@@ -52,9 +72,8 @@ const CustomerReviews = () => {
               </Typography>
             </Box>
           </Box>
-        </div>
-        <div className="">
-          <Box sx={{ mb: 4 }}>
+
+          <Box sx={{ flexGrow: 1, minWidth: "250px" }}>
             {ratingDistribution.map((item) => (
               <Box
                 key={item.stars}
@@ -81,13 +100,16 @@ const CustomerReviews = () => {
                     }}
                   />
                 </Box>
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                  variant="body2"
+                  sx={{ width: "10%", textAlign: "right" }}
+                >
                   {item.percentage}%
                 </Typography>
               </Box>
             ))}
           </Box>
-        </div>
+        </Box>
 
         {reviews.map((review, index) => (
           <Box key={index} sx={{ mb: 3 }}>
