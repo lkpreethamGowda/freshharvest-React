@@ -4,7 +4,7 @@ function SignUpPage() {
   const navigate = useNavigate();
 
   const HandleMessagePage = () => {
-    navigate("/Message");
+    navigate("/Messages");
   };
   return (
     <div className="flex w-full h-full items-center justify-center mb-10">

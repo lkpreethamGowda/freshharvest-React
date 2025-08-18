@@ -14,13 +14,13 @@ function HomeHeader() {
         />
         <h1 className="text-gray-900 text-2xl font-bold pl-2">FreshHarvest</h1>
         <div className=" flex items-center gap-10 ml-8">
-          <NavLink to="/Shop" className="text-gray-700 hover:text-blue-600">
+          <NavLink to="/Shops" className="text-gray-700 hover:text-blue-600">
             Shop
           </NavLink>
           <NavLink to="/" className="text-gray-700 hover:text-blue-600">
             About
           </NavLink>
-          <NavLink to="/contact" className="text-gray-700 hover:text-blue-600">
+          <NavLink to="/contacts" className="text-gray-700 hover:text-blue-600">
             Contact
           </NavLink>
         </div>

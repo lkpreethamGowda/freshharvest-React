@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 function PricingPage() {
+  const navigate = useNavigate();
+
+  const MoveToCart = () => {
+    navigate("/Carts");
+  };
+
   return (
     <div>
       <div className="inline-block mt-8">
@@ -15,7 +23,10 @@ function PricingPage() {
         </div>
       </div>
       <div className="ml-73 mt-12">
-        <button className="bg-[#4AB814] rounded-lg w-30 h-[40px] text-black-200">
+        <button
+          onClick={MoveToCart}
+          className="bg-[#4AB814] rounded-lg w-30 h-[40px] text-black-200"
+        >
           Add to Cart
         </button>
       </div>

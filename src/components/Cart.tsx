@@ -1,8 +1,16 @@
 import img1 from "../assets/CartImage.png";
 import img2 from "../assets/AddImage.png";
 import img3 from "../assets/SubImage.png";
+import { useNavigate } from "react-router-dom";
 
 function CartPage() {
+  const navigate = useNavigate();
+  const MoveToShop = () => {
+    navigate("/Shops");
+  };
+  const MoveToOrder = () => {
+    navigate("/Orders");
+  };
   return (
     <div>
       <div className="flex justify-center mt-8">
@@ -56,12 +64,18 @@ function CartPage() {
         </div>
       </div>
       <div>
-        <button className="bg-[#4AB814] rounded-lg w-100 h-[40px] text-black-200 mt-8 ml-98">
+        <button
+          onClick={MoveToOrder}
+          className="bg-[#4AB814] rounded-lg w-100 h-[40px] text-black-200 mt-8 ml-98"
+        >
           Proceed to Checkout
         </button>
       </div>
       <div className="ml-180 mt-8">
-        <button className="bg-[#F2F5F0] rounded-lg w-40 h-[40px] text-black-200">
+        <button
+          onClick={MoveToShop}
+          className="bg-[#F2F5F0] rounded-lg w-40 h-[40px] text-black-200"
+        >
           Continue Shopping
         </button>
       </div>

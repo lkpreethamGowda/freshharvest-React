@@ -4,7 +4,7 @@ function LogInButton() {
   const navigate = useNavigate();
 
   const handleLogIn = () => {
-    navigate("/login");
+    navigate("/logins");
   };
 
   return (

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function LogInPage() {
   const navigate = useNavigate();
   const handleMessagePage = () => {
-    navigate("/Message");
+    navigate("/Messages");
   };
   return (
     <div className="flex w-full h-full items-center justify-center">

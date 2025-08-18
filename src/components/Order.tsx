@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 function OrderPage() {
+  const navigate = useNavigate();
+
+  const MoveToHistory = () => {
+    navigate("/Historys");
+  };
+
   return (
     <div>
       <div className="inline-block mt-8">
@@ -41,7 +49,10 @@ function OrderPage() {
         </p>
       </div>
       <div className="mt-8 ml-160">
-        <button className="bg-[#4AB814] rounded-lg w-40 h-[40px] font-bold">
+        <button
+          onClick={MoveToHistory}
+          className="bg-[#4AB814] rounded-lg w-40 h-[40px] font-bold"
+        >
           View Order Details
         </button>
       </div>

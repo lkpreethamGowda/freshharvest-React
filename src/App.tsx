@@ -8,14 +8,15 @@ import Message from "./components/Message";
 import HomeHeader from "./components/HomeHeader";
 import ShopPage from "./components/ShopPage";
 
-import ProductPage from "./components/Products";
-import FarmerDetails from "./components/FarmerProfile";
-import PricingPage from "./components/Pricing";
-import CustomerReviews from "./components/Review";
-import BadgesPage from "./components/Badges";
+// import ProductPage from "./components/Products";
+// import FarmerDetails from "./components/FarmerProfile";
+// import PricingPage from "./components/Pricing";
+// import CustomerReviews from "./components/Review";
+// import BadgesPage from "./components/Badges";
 import CartPage from "./components/Cart";
 import OrderPage from "./components/Order";
 import OrderHistory from "./components/History";
+import ProductDetailsPage from "./components/ProductPage";
 
 function App() {
   return (
@@ -23,18 +24,14 @@ function App() {
       <HomeHeader />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LogInPage />} />
-        <Route path="/SignUp" element={<SignUpPage />} />
-        <Route path="/Message" element={<Message />} />
-        <Route path="/Shop" element={<ShopPage />} />
-        <Route path="/Product" element={<ProductPage />} />
-        <Route path="/Farmer" element={<FarmerDetails />} />
-        <Route path="/Price" element={<PricingPage />} />
-        <Route path="/Review" element={<CustomerReviews />} />
-        <Route path="/Badges" element={<BadgesPage />} />
-        <Route path="/Cart" element={<CartPage />} />
-        <Route path="/Order" element={<OrderPage />} />
-        <Route path="/History" element={<OrderHistory />} />
+        <Route path="/logins" element={<LogInPage />} />
+        <Route path="/SignUps" element={<SignUpPage />} />
+        <Route path="/Messages" element={<Message />} />
+        <Route path="/Shops" element={<ShopPage />} />
+        <Route path="/Products" element={<ProductDetailsPage />} />
+        <Route path="/Carts" element={<CartPage />} />
+        <Route path="/Orders" element={<OrderPage />} />
+        <Route path="/Historys" element={<OrderHistory />} />
       </Routes>
       <Footer />
     </BrowserRouter>

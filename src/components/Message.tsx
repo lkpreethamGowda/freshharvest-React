@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function Message() {
   const naviagte = useNavigate();
   const ShopPage = () => {
-    naviagte("/Shop");
+    naviagte("/Shops");
   };
   const Username = "Sarah";
   return (

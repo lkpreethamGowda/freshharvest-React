@@ -16,13 +16,13 @@ function Header() {
       </div>
 
       <div className="flex items-center gap-10">
-        <NavLink to="/about" className="text-gray-700 hover:text-blue-600">
+        <NavLink to="/abouts" className="text-gray-700 hover:text-blue-600">
           About
         </NavLink>
         <NavLink to="/products" className="text-gray-700 hover:text-blue-600">
           Products
         </NavLink>
-        <NavLink to="/contact" className="text-gray-700 hover:text-blue-600">
+        <NavLink to="/contacts" className="text-gray-700 hover:text-blue-600">
           Contact
         </NavLink>
 
