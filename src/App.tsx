@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Header from "./components/header";
+//import Header from "./components/header";
 import LandingPage from "./components/LandingPage";
 import LogInPage from "./components/LogInPage";
 import Footer from "./components/Footer";
@@ -22,6 +22,7 @@ function App() {
   return (
     <BrowserRouter>
       <HomeHeader />
+
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/logins" element={<LogInPage />} />
