@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function OrderPage() {
+  const location = useLocation();
+  const { itemsPurchased, totalAmount } = location.state || {};
   const navigate = useNavigate();
 
   const MoveToHistory = () => {
@@ -25,13 +28,13 @@ function OrderPage() {
         </div>
         <div>
           <p className="text-gray-700">Items Purchased</p>
-          <p>Organic Apples, Free-Range Eggs, Fresh Spinach</p>
+          <p>{itemsPurchased}</p>
         </div>
       </div>
       <div className=" flex mt-10 ml-73 gap-30">
         <div>
           <p className="text-gray-700">Total Amount</p>
-          <p>$35.50</p>
+          <p>${totalAmount}</p>
         </div>
         <div>
           <p className="text-gray-700">Delivery Address</p>

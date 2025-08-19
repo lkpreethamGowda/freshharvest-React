@@ -1,36 +1,58 @@
-import img1 from "../assets/ProductImg1.png";
-import img2 from "../assets/ProductImg2.png";
-import img3 from "../assets/ProductImg3.png";
+interface Product {
+  id: number;
+  product_name: string;
+  image: string;
+  harversted_date: string;
+  location: string;
+  label: string;
+  pricing: number;
+  delevery: string;
+  type: string;
+  farmer_id: number;
+}
 
-function ProductPage() {
+function ProductPage({ product }: { product: Product | null }) {
+  if (!product) return <p>No product data</p>;
+
   return (
-    <div>
-      <div className="flex justify-center mt-8">
-        <h1 className="text-2xl mr-190 font-bold">Product Details</h1>
-      </div>
-      <div className="flex justify-center gap-2 mt-8">
-        <img src={img1} alt="Product Image" className="object-contain" />
-        <img src={img2} alt="Product Image" className="object-contain" />
-        <img src={img3} alt="Product Image" className="object-contain" />
-      </div>
-      <div className="inline-block mt-8">
-        <h1 className="text-2xl ml-73 font-bold">Organic Carrots</h1>
+    <div className="mt-8 px-10">
+      <h1 className="text-2xl font-bold mb-6 ml-73">Product Details</h1>
 
-        <p className="ml-73 mt-5">Rs. 40 per Kilogram</p>
+      <div className="flex justify-center gap-4">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="flex justify-center gap-4 mb-6">
+            {product.image ? (
+              <img
+                src={product.image}
+                alt="Product"
+                className="w-40 h-40 object-cover rounded-lg shadow"
+              />
+            ) : (
+              <p>No Image Available</p>
+            )}
+          </div>
+        ))}
       </div>
-      <div className=" flex mt-8 ml-73 gap-30">
-        <div>
-          <p className="text-gray-700">Harvest Date</p>
-          <p>July 20,2024</p>
+
+      <div className="ml-73 mt-30">
+        <h2 className="text-xl font-semibold">{product.product_name}</h2>
+        <p className="text-lg mt-2">Rs. {product.pricing} per Kilogram</p>
+
+        <div className="flex gap-20 mt-6">
+          <div>
+            <p className="text-gray-600">Harvest Date</p>
+            <p>{product.harversted_date}</p>
+          </div>
+          <div>
+            <p className="text-gray-600">Farm Location</p>
+            <p>{product.location}</p>
+          </div>
         </div>
-        <div>
-          <p className="text-gray-700">Farm Location</p>
-          <p>Mandya, Karnataka</p>
+
+        <div className="mt-6">
+          <p className="text-gray-600">Organic/Natural Labels</p>
+          <p>{product.type}</p>
         </div>
-      </div>
-      <div className="ml-73 mt-10">
-        <p className="text-gray-700">Organic/Natural Labels</p>
-        <p>Certified Organic</p>
       </div>
     </div>
   );
