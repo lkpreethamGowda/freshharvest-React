@@ -47,7 +47,7 @@ function HomeHeader() {
               className="w-full rounded bg-gray-200 px-3 py-1 pl-10"
             />
           </div>
-          <button className="ml-7 h-8 w-20 rounded bg-gray-200 hover:bg-blue-300 text-black">
+          <button className="ml-7 h-8 w-20 rounded bg-gray-200 hover:bg-blue-300 text-black ">
             Cart
           </button>
           <img className="ml-2 h-8" src={Heart} alt="##" />

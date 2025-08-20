@@ -20,12 +20,12 @@ function ProductPage({ product }: { product: Product | null }) {
 
       <div className="flex justify-center gap-4">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="flex justify-center gap-4 mb-6">
+          <div key={i} className="flex justify-center gap-6 mb-2">
             {product.image ? (
               <img
                 src={product.image}
                 alt="Product"
-                className="w-40 h-40 object-cover rounded-lg shadow"
+                className="w-60 h-60 object-cover rounded-lg shadow"
               />
             ) : (
               <p>No Image Available</p>
@@ -34,7 +34,7 @@ function ProductPage({ product }: { product: Product | null }) {
         ))}
       </div>
 
-      <div className="ml-73 mt-30">
+      <div className="ml-73 mt-20">
         <h2 className="text-xl font-semibold">{product.product_name}</h2>
         <p className="text-lg mt-2">Rs. {product.pricing} per Kilogram</p>
 

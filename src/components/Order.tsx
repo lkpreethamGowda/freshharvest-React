@@ -28,7 +28,7 @@ function OrderPage() {
         </div>
         <div>
           <p className="text-gray-700">Items Purchased</p>
-          <p>{itemsPurchased}</p>
+          <p>{itemsPurchased.join(", ")}</p>
         </div>
       </div>
       <div className=" flex mt-10 ml-73 gap-30">

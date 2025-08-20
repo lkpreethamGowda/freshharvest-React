@@ -1,6 +1,7 @@
 import img1 from "../assets/CartImage.png";
 import img2 from "../assets/AddImage.png";
 import img3 from "../assets/SubImage.png";
+import img4 from "../assets/DeleteImage.png";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -20,7 +21,7 @@ interface CartItem {
 }
 
 function CartPage() {
-  const [coupon, setCoupon] = useState("");
+  const [coupon, setCoupon] = useState("Zero");
   const [discount, setDiscount] = useState(0);
   const location = useLocation();
   const [discountId, setDiscountId] = useState(0);
@@ -105,6 +106,7 @@ function CartPage() {
     setDiscountId(discountId);
     setDiscount(!isNaN(discountValue) ? discountValue : 0);
   };
+  applyCoupon();
   const handleCheckout = async () => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -209,6 +211,30 @@ function CartPage() {
       setError(err.message);
     }
   };
+  const DeleteItem = async (itemId: number) => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/api/deleteCartItems/${itemId}/`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+      if (response.ok) {
+        setCartItems((prevItems) =>
+          prevItems.filter((item) => item.id != itemId)
+        );
+      } else {
+        console.error("Failed to delete item", await response.text());
+      }
+    } catch (err) {
+      console.log("Error has accured while deleting the cartItem ", err);
+    }
+  };
 
   return (
     <div>
@@ -245,6 +271,14 @@ function CartPage() {
               alt="Subtract"
               className="cursor-pointer"
               onClick={() => updateItemQuantity(item.id, item.count - 1)}
+            />
+            <img
+              src={img4}
+              alt="Delete"
+              className="cursor-pointer w-6 h-6"
+              onClick={() => {
+                DeleteItem(item.id);
+              }}
             />
           </div>
         ))

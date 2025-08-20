@@ -16,6 +16,7 @@ interface Product {
 }
 
 function ShopPage() {
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
@@ -44,6 +45,12 @@ function ShopPage() {
         console.error("error fetching products:", err);
       });
   }, []);
+
+  const handleSearchChanges = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+    console.log("Search ", event.target.value);
+  };
+
   const handleCategoryChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -60,6 +67,43 @@ function ShopPage() {
     setSelectedType(event.target.value);
     console.log("User selected:", event.target.value);
   };
+
+  const fetchFilteredProducts = () => {
+    const token = localStorage.getItem("token");
+
+    const params = new URLSearchParams();
+    if (searchTerm) params.append("product_name", searchTerm);
+    if (selectedCategory) params.append("label", selectedCategory);
+    if (selectedType) params.append("type", selectedType);
+
+    if (selectedPrice) {
+      const [min, max] = selectedPrice.split("-").map(Number);
+      params.append("min_price", min.toString());
+      params.append("max_price", max.toString());
+    }
+
+    fetch(`http://127.0.0.1:8000/api/searchProducts/?${params.toString()}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token ? `Token ${token}` : "",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch products");
+        return res.json();
+      })
+      .then((data) => {
+        setProducts(data);
+        console.log("Filtered products:", data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+  useEffect(() => {
+    fetchFilteredProducts();
+  }, [selectedCategory, selectedType, selectedPrice, searchTerm]);
 
   return (
     <div className="flex justify-center items-center">
@@ -83,6 +127,8 @@ function ShopPage() {
             <input
               type="text"
               id="search"
+              value={searchTerm}
+              onChange={handleSearchChanges}
               placeholder="Search for products or farms"
               className="block h-10 w-full rounded-lg bg-gray-200 py-1 pl-10 pr-3"
             />
@@ -100,9 +146,9 @@ function ShopPage() {
                 onChange={handleCategoryChange}
               >
                 <option value="">All Categories</option>
-                <option value="fruits">Oragnic</option>
-                <option value="vegetables">GMO</option>
-                <option value="dairy">Pesticide</option>
+                <option value="Organic">Oragnic</option>
+                <option value="GMO">GMO</option>
+                <option value="Pesticides">Pesticide</option>
               </select>
             </div>
 
@@ -117,9 +163,9 @@ function ShopPage() {
                 onChange={handlePriceChange}
               >
                 <option value="">Price Range</option>
-                <option value="fruits">0-100</option>
-                <option value="vegetables">100-500</option>
-                <option value="dairy">500-1000</option>
+                <option value="0-100">0-100</option>
+                <option value="100-500">100-500</option>
+                <option value="500-1000">500-1000</option>
               </select>
             </div>
 
@@ -135,9 +181,9 @@ function ShopPage() {
                   onChange={handleTypeChange}
                 >
                   <option value="">Product Type</option>
-                  <option value="fruits">Fruits</option>
-                  <option value="vegetables">Vegetables</option>
-                  <option value="dairy">Dairy</option>
+                  <option value="Fruit">Fruits</option>
+                  <option value="Vegetable">Vegetables</option>
+                  <option value="Dairy">Dairy</option>
                 </select>
               </div>
             </div>

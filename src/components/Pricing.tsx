@@ -51,6 +51,7 @@ function PricingPage({ product }: { product: Product | null }) {
 
       const data = await response.json();
       setUser(data);
+      localStorage.setItem("userId", data.id.toString());
     } catch (err: any) {
       setError(err.message);
     }
